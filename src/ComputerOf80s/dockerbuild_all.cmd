@@ -1,12 +1,14 @@
 @echo OFF
 cd Amiga
-docker build . -t amiga
+call docker build . -t amiga
 cd ..\AmstradCPC464
-docker build . -t amstradcpc464
+call docker build . -t amstradcpc464
 cd ..\AtariST
-docker build . -t atarist
+call docker build . -t atarist
 cd ..\Commodore64
-docker build . -t commodore64
+call docker build . -t commodore64
 cd ..\Squale
-docker build . -t squale
+call docker build . -t squale
 cd ..
+
+call docker images

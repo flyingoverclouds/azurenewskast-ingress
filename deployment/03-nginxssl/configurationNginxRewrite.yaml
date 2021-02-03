@@ -1,0 +1,79 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite-squale
+spec:
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /squale(/|$)(.*)
+        backend:
+          serviceName: cip-squale
+          servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite-amiga
+spec:
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /amiga(/|$)(.*)
+        backend:
+          serviceName: cip-amiga
+          servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite-atarist
+spec:
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /atarist(/|$)(.*)
+        backend:
+          serviceName: cip-atarist
+          servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite-cpc464
+spec:
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /cpc464(/|$)(.*)
+        backend:
+          serviceName: cip-amstradcpc464
+          servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: rewrite-c64
+spec:
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /c64(/|$)(.*)
+        backend:
+          serviceName: cip-commodore64
+          servicePort: 80

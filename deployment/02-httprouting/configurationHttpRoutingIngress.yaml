@@ -1,0 +1,95 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ing-amstradcpc464
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: cpc464.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-amstradcpc464
+          servicePort: 80
+        path: /
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ing-squale
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: squale.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-squale
+          servicePort: 80
+        path: /
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ing-commodore64
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: c64.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-commodore64
+          servicePort: 80
+        path: /
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ing-amiga
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: amiga.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-amiga
+          servicePort: 80
+        path: /
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ing-atarist
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: atarist.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-atarist
+          servicePort: 80
+        path: /
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: www-computerof80s
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: www.a1d761b08ef04f19acd7.francecentral.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: cip-squale
+          servicePort: 80
+        path: /

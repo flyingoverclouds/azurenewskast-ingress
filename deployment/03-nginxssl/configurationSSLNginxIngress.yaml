@@ -18,32 +18,25 @@ spec:
         backend:
           serviceName: cip-amstradcpc464
           servicePort: 80
-  # - host: c64.51-138-222-122.nip.io
-  #   http:
-  #     paths:
-  #     - path: /
-  #       backend:
-  #         serviceName: cip-commodore64
-  #         servicePort: 80
-  # - host: amiga.51-138-222-122.nip.io
-  #   http:
-  #     paths:
-  #     - path: /
-  #       backend:
-  #         serviceName: cip-amiga
-  #         servicePort: 80
-  #       path: /
-  # - host: atarist.51-138-222-122.nip.io
-  #   http:
-  #     paths:
-  #     - path: /
-  #       backend:
-  #         serviceName: cip-atarist
-  #         servicePort: 80
-  # - host: squale.51-138-222-122.nip.io
-  #   http:
-  #     paths:
-  #     - path: /      
-  #       backend:
-  #         serviceName: cip-squale
-  #         servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: rootsquale-nginxingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+    - hosts:
+      - www.computerof80s.kangooroo.red
+      secretName: root-www-web-cert
+  rules:
+  - host: www.computerof80s.kangooroo.red
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cip-squale
+          servicePort: 80
+  

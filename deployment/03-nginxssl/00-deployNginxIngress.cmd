@@ -1,21 +1,15 @@
 @echo off
 
-REM : Ca Commence dans le cloud drive (déploiement NGINX / CERT Manage)
+REM Ca commence dans le shellAzure : 04-activateNginxIngress.sh
 
-SET KNS=computerof80s-nginxssl
+SET APP_NS=computerof80s-nginxssl
 
-call kubectl create namespace %KNS%
+call kubectl create namespace %APP_NS%
 
-call kubectl apply -f replicas.yaml --namespace %KNS%
+call kubectl apply -f replicas.yaml --namespace %APP_NS%
 
-call kubectl apply -f services.yaml --namespace %KNS%
+call kubectl apply -f services.yaml --namespace %APP_NS%
 
-call kubectl apply -f 00-deployNginxIngress.yaml --namespace %KNS%
+call kubectl apply -f 00-deployNginxIngress.yaml --namespace %APP_NS%
 
-REM suivi des logs de l'addon HTTP_ROUTING ???? TO UPDATE FOR NGINX
-REM kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
-
-REM suivi des log de l'ingress HTTP_ROUTING ???? TO UPDATE FOR NGINX
-REM kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
-
-REM ... Ca continue dans cloud drive (déploiement du certmanager) puis dans le fichier 01-....cmd
+REM ... Ca continue dans le shellAzure (05-activateLetsEncryptNginxIngress.sh : déploiement déploiement du certmanager) puis dans le fichier 01-....cmd

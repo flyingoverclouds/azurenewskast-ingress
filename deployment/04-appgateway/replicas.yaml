@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: amstradcpc464
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: amstradcpc464
+  template:
+    metadata:
+      labels:
+        app: amstradcpc464 # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: amstradcpc464
+        image: mcmgdevnccr.azurecr.io/amstradcpc464:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8464
+          name: http
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: commodore64
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commodore64
+  template:
+    metadata:
+      labels:
+        app: commodore64 # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: commodore64
+        image: mcmgdevnccr.azurecr.io/commodore64:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8064
+          name: http
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: squale
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: squale
+  template:
+    metadata:
+      labels:
+        app: squale # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: squale
+        image: mcmgdevnccr.azurecr.io/squale:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8007
+          name: http
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: amiga
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: amiga
+  template:
+    metadata:
+      labels:
+        app: amiga # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: amiga
+        image: mcmgdevnccr.azurecr.io/amiga:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8500
+          name: http
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: atarist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atarist
+  template:
+    metadata:
+      labels:
+        app: atarist # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: atarist
+        image: mcmgdevnccr.azurecr.io/atarist:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9040
+          name: http

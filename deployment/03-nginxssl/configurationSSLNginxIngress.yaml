@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: computersof80s-nginxingress
+  name: computersof80s-nginxingress-ssl
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
     - hosts:
-      - cpc464.51-138-222-122.nip.io
-      secretName: cpc464-web-cert
+      - amstrad.51-138-222-122.nip.io
+      secretName: asmtrad-web-cert
   rules:
-  - host: cpc464.51-138-222-122.nip.io
+  - host: amstrad.51-138-222-122.nip.io
     http:
       paths:
       - path: /

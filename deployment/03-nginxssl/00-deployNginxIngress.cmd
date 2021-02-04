@@ -12,4 +12,4 @@ call kubectl apply -f services.yaml --namespace %APP_NS%
 
 call kubectl apply -f configurationNginxIngress.yaml --namespace %APP_NS%
 
-REM ... Ca continue dans le shellAzure (05-activateLetsEncryptNginxIngress.sh : déploiement déploiement du certmanager) puis dans le fichier 01-....cmd
+REM ... Ca continue dans les script d'infra (05-activateLetsEncryptNginxIngress.sh : déploiement déploiement du certmanager) puis dans le fichier 01-....cmd
